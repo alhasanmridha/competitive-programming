@@ -5,7 +5,7 @@ struct cost_d
 	char name[20];
 	int cost=0;
 	bool operator<(const cost_d& o){
-		return (cost==o.cost?strcmp(name,o.name) < 0:cost<o.cost);
+		return cost==o.cost?strcmp(name,o.name) < 0:cost<o.cost;
 		
 	}
 };
