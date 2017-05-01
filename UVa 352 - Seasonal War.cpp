@@ -1,5 +1,3 @@
-//Problem Link
-//https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=288
 #include <bits/stdc++.h>
 using namespace std;
 int dr[8] = {-1, -1, -1,  0, 0,  1, 1, 1};
