@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 int inf=1000000000;
-struct nd{
-	int n
-}
 int main(){
 	int N,n,s,t,m,w,n1,n2;
 	cin>>N;
