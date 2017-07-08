@@ -1,39 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
-int inf=1000000000;
+typedef pair<int,int>ii;
+typedef vector<ii>vii;
+int T,test,n,m,s,t,u,v,w,tu;
 int main(){
-	int N,n,s,t,m,w,n1,n2;
-	cin>>N;
-	for(int i=0;i<N;i++){
-		vector<int> dist;
-		vector<pair<int,int> >adj[20001];
+	cin>>test;
+	for(T=1;T<=test;T++){
+		cout<<"Case #"<<T<<": ";
 		cin>>n>>m>>s>>t;
-		while(m--){
-			cin>>n1>>n2>>w;
-			adj[n1].push_back(pair<int,int>(w,n2));
-			adj[n2].push_back(pair<int,int>(w,n1));
+		vii adj[n];
+		vector<int>dist(n,INT_MAX);
+		for(int i=0;i<m;i++){
+			cin>>u>>v>>w;
+			adj[u].push_back(ii(v,w));
+			adj[v].push_back(ii(u,w));
 		}
-		dist.assign(n,inf);
+		priority_queue<ii,vii,greater<ii> >Q;
+		Q.push(ii(0,s));
 		dist[s]=0;
-		priority_queue<pair<int,int>,vector<pair<int,int> >,greater<pair<int,int> > > q;
-		q.push(pair<int,int>(0,s));
-		while(!q.empty()){
-			pair<int,int> cur=q.top();
-			q.pop();
-			int d=cur.first;
-			int u=cur.second;
-			for(int i=0;i<adj[u].size();i++){
-				int alt=dist[u]+adj[u][i].first;
-				if(alt<dist[adj[u][i].second]){
-					dist[adj[u][i].second]=alt;
-					q.push(pair<int,int>(alt,adj[u][i].second));
+		bool vis[20001];
+		for(int i=0;i<n;i++) vis[i]=false;
+			while(!Q.empty()){
+				ii top=Q.top();
+				Q.pop();
+				int d=top.first,tu=top.second;
+				vis[tu]=true;
+				for(int i=0;i<adj[tu].size();i++){
+					int tv=adj[tu][i].first;
+					int length=adj[tu][i].second;
+					int alt=length+dist[tu];
+					if(alt<dist[tv]){
+						dist[tv]=alt;
+						Q.push(ii(alt,tv));
+					}
 				}
 			}
+			if(!vis[t]) cout<<"unreachable\n";
+			else cout<<dist[t]<<"\n";
 		}
-		cout<<"Case #"<<i+1<<": ";
-		if(dist[t]==inf)
-			puts("unreachable");
-		else
-			cout<<dist[t]<<"\n";
 	}
-}
