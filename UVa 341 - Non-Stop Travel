@@ -1,0 +1,51 @@
+#include <iostream>
+using  namespace std;
+#define INT_MAX 1000000000
+int path[100][100];
+int main(){
+	int it=0;
+	while(1){
+		int n,grid[101][101];
+		cin>>n;
+		if(n==0) return 0;
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++)
+				path[i][j]=0;
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++){
+				if(i==j){
+					grid[i][j]=0;
+					continue;
+				}
+				grid[i][j]=INT_MAX/2;
+			}
+		for(int i=0;i<n;i++){
+			int m;
+			cin>>m;
+			for(int j=0;j<m;j++){
+				int u,w;
+				cin>>u>>w;
+				grid[i][u-1]=w;
+				path[i][u-1]=u-1;
+			}
+		}
+		int u,v;
+		cin>>u>>v;
+		--u;
+		--v;
+		for(int k=0;k<n;k++)
+			for(int i=0;i<n;i++)
+				for(int j=0;j<n;j++)
+					if(grid[i][j]>grid[i][k]+grid[k][j]){
+						grid[i][j]=grid[i][k]+grid[k][j];
+						path[i][j]=path[i][k];
+					}
+		cout<<"Case "<<++it<<": Path = "<<u+1;
+		int dealy=grid[u][v];
+		while(u!=v){
+			u=path[u][v];
+			cout<<" "<<u+1;
+		}
+		cout<<"; "<<dealy<<" second delay\n";
+	}
+}
