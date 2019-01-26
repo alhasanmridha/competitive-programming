@@ -1,2 +1,2 @@
 # Algorithms
-Solution of uva problem will be published here :)
+Solution of algorithm problems will be published here :)
