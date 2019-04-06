@@ -31,7 +31,7 @@ int get_totient(int n){
 int main(){
     int n;
     cin>>n;
-	precalc_primes();
+	precalc_primes();//call this method only once for all test cases
     cout<<get_totient(n);
     return 0;
 }
