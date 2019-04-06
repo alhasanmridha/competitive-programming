@@ -14,7 +14,6 @@ void precalc_primes(){
 }
 int get_totient(int n){
     int result=n;
-    precalc_primes();
     for(int i=0;i*i<n;i++){
         if(n%primes[i]==0){
             while(n%primes[i]==0)
@@ -32,6 +31,7 @@ int get_totient(int n){
 int main(){
     int n;
     cin>>n;
+	precalc_primes();
     cout<<get_totient(n);
     return 0;
 }
