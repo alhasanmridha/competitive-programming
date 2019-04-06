@@ -1,10 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define M 1000005
-vector<int> primes;
+typedef long long int LL;
+vector<LL> primes;
 bool seive[M];
 void precalc_primes(){
-	for(int i=2;i<M;i++){
+	for(LL i=2;i<M;i++){
 		if(!seive[i]) primes.push_back(i);
 		for(int j=0;j<primes.size() and i*primes[j]<M;j++){
 			seive[primes[j]*i]=true;
@@ -12,26 +13,28 @@ void precalc_primes(){
 		}
 	}
 }
-int get_totient(int n){
-    int result=n;
-    for(int i=0;i*i<n;i++){
-        if(n%primes[i]==0){
-            while(n%primes[i]==0)
-            n/=primes[i];
-            result/=primes[i];
-            result*=primes[i]-1;
-        }
-    }
-    if(n!=1){
-        result/=n;
-        result*=n-1;
-    }
-    return result;
+LL get_totient(LL n){
+	LL result=n;
+	for(LL i=0;i*i<n;i++){
+		if(n%primes[i]==0){
+			while(n%primes[i]==0)
+				n/=primes[i];
+			result/=primes[i];
+			result*=primes[i]-1;
+		}
+	}
+	if(n!=1){
+		result/=n;
+		result*=n-1;
+	}
+	return result;
 }
 int main(){
-    int n;
-    cin>>n;
-	precalc_primes();//call this method only once for all test cases
-    cout<<get_totient(n);
-    return 0;
+	int n,t;
+	precalc_primes();
+	cin>>t;
+	while(t--){
+		cin>>n;
+		cout<<get_totient(n)<<"\n";
+	}
 }
