@@ -11,9 +11,7 @@ void precalc_primes(){
 			if(i%primes[j]==0) break;
 		}
 	}
-
 }
-
 int main(){
 	precalc_primes();
 	for(int i=0;i<100;i++){
