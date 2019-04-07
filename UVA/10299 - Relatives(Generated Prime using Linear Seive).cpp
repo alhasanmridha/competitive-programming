@@ -16,7 +16,7 @@ void precalc_primes(){
 LL get_totient(LL n){
 	if(n==1) return 0;
 	LL result=n;
-	for(LL i=0;i*i<n;i++){
+	for(LL i=0;primes[i]*primes[i]<=n;i++){
 		if(n%primes[i]==0){
 			while(n%primes[i]==0)
 				n/=primes[i];
