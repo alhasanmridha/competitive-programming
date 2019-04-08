@@ -1,12 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define M 1000005
-vector<int> primes;
+typedef long long int LL;
+vector<LL> primes;
 bool seive[M];
-int phi[M];
-void precalc_primes(){
+LL phi[M];
+void precalc_totient(){
 	phi[1]=1;
-	for(int i=2;i<M;i++){
+	for(LL i=2;i<M;i++){
 		if(!seive[i]){
 			primes.push_back(i);
 			phi[i]=i-1;
@@ -23,7 +24,7 @@ void precalc_primes(){
 	}
 }
 int main(){
-	precalc_primes();
+	precalc_totient();
 	int t,n;
 	cin>>t;
 	while(t--){
