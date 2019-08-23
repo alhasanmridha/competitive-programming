@@ -12,7 +12,6 @@ def get_prm_fctrs(n):
     if n>1:
         factors.append(n)
     return factors
-
 def get_n_coprimes(n,m):
     if n==1:
         return m
@@ -30,7 +29,6 @@ def get_n_coprimes(n,m):
         else:
             ans+=m//prod
     return m+ans
-
 prm_factors=[[0],[0]]
 for i in range(2,m+1):
     prm_factors.append(get_prm_fctrs(i))
