@@ -2,5 +2,5 @@
 This is created to increase the learning rate of Algorithms and DataStructures. Problems are catagorized by topics found [here](https://cp-algorithms.com/).
 
 ## String
-1. [String Hashing](https://cp-algorithms.com/string/string-hashing.html) : [String Compression](https://github.com/alhasanmridha/competitive-programming/blob/master/codeforces/String%20Compression.cpp)
+1. [String Hashing](https://cp-algorithms.com/string/string-hashing.html) : [String Compression](https://github.com/alhasanmridha/competitive-programming/blob/master/codeforces/String%20Compression.cpp), [Password - Codeforces](https://github.com/alhasanmridha/competitive-programming/blob/master/codeforces/Password%20-%20Codeforces.cpp)
 1. [Prefix function](): [Periodic String](https://github.com/alhasanmridha/competitive-programming/blob/master/UVA/Periodic%20String.cpp)
